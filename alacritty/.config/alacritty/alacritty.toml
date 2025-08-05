@@ -1,6 +1,7 @@
 [general]
 import = [
-    "~/.config/alacritty/themes/themes/gruvbox_material_hard_dark.toml"
+    # "~/.config/alacritty/themes/themes/gruvbox_material_hard_dark.toml"
+    "~/.config/alacritty/themes/themes/rose_pine.toml"
 ]
 
 [terminal.shell]
