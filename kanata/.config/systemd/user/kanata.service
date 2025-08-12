@@ -14,7 +14,7 @@ Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/home/gonzalo/.car
 # IOSchedulingClass=realtime
 # Nice=-20
 Type=simple
-ExecStart=/usr/bin/sh -c 'exec /home/gonzalo/.cargo/bin/kanata --cfg /home/gonzalo/.config/kanata/home-row-mod.kbd'
+ExecStart=/usr/bin/sh -c 'exec $HOME/.cargo/bin/kanata --cfg $HOME/.config/kanata/home-row-mod.kbd'
 Restart=no
 
 [Install]
