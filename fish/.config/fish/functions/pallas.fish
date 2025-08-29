@@ -14,7 +14,7 @@ function pallas
     set -gx conda_env_name "webdiagram"
 
     # Comando para el primer programa
-    set -gx prog11_cmd "micromamba activate $conda_env_name" 
+    set -gx prog11_cmd "conda activate $conda_env_name" 
     set -gx prog12_cmd "$PALLAS_FOLDER/build/src/server -m mongodb://pallasUSER:peql1234@10.73.32.33/test -db pallas -h 0.0.0.0"
 
     # Comando para el segundo programa

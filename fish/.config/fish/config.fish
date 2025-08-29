@@ -1,12 +1,5 @@
 starship init fish | source
 
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba shell init' !!
-set -gx MAMBA_EXE "$HOME/miniforge3/bin/mamba"
-set -gx MAMBA_ROOT_PREFIX "$HOME/miniforge3"
-$MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
-# <<< mamba initialize <<<
-
 # set default editor
 set -gx EDITOR "/usr/bin/nvim"
 
@@ -25,3 +18,18 @@ alias obsi="cd /home/gonza/vaults/notes/ && nvim ."
 # config fast node manager fnm
 fnm completions --shell fish | source
 fnm env --use-on-cd --shell fish | source
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /home/gonza/miniforge3/bin/conda
+    eval /home/gonza/miniforge3/bin/conda "shell.fish" "hook" $argv | source
+else
+    if test -f "/home/gonza/miniforge3/etc/fish/conf.d/conda.fish"
+        . "/home/gonza/miniforge3/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH "/home/gonza/miniforge3/bin" $PATH
+    end
+end
+# <<< conda initialize <<<
+zoxide init fish | source
+
