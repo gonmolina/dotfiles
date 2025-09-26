@@ -3,7 +3,6 @@ function pallas
     set -x PALLAS_FOLDER "$HOME/dev/CNEAProjects/pallas" 
     set -x PYTHONPATH "$PALLAS_FOLDER/pyblock:$PALLAS_FOLDER/pywd:$PALLAS_FOLDER/webdiagram:$PALLAS_FOLDER/pyelec:$PALLAS_FOLDER/lib_pallas"
 
-
     # echo "PYTHONPATH set at $PYTHONPATH"
     cd $HOME/dev/CNEAProjects/pallas/
 
@@ -14,7 +13,7 @@ function pallas
     set -gx conda_env_name "webdiagram"
 
     # Comando para el primer programa
-    set -gx prog11_cmd "conda activate $conda_env_name" 
+    set -gx prog11_cmd "mamba shell $conda_env_name" 
     set -gx prog12_cmd "$PALLAS_FOLDER/build/src/server -m mongodb://pallasUSER:peql1234@10.73.32.33/test -db pallas -h 0.0.0.0"
 
     # Comando para el segundo programa
@@ -28,11 +27,8 @@ function pallas
     tmux send-keys -t $session_name "$prog11_cmd" Enter 
     tmux send-keys -t $session_name "$prog12_cmd" Enter 
 
-    # tmux new-session -d -s $session_name -n "server" $prog1_cmd
-    # tmux send-keys "$prog2_cmd" Enter
 
     # Dividir la ventana horizontalmente y ejecutar el segundo programa
-    # tmux split-window -t $session_name -h $prog2_cmd
     tmux split-window -h -t $session_name
     tmux send-keys -t $session_name "$prog11_cmd" Enter 
     tmux send-keys "$prog2_cmd" Enter
