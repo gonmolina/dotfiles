@@ -10,7 +10,7 @@ function pallas
     set -gx conda_env_name "webdiagram"
 
     # Comando para el primer programa
-    set -gx prog11_cmd "micromamba activate $conda_env_name" 
+    set -gx prog11_cmd "mamba shell $conda_env_name" 
     set -gx prog12_cmd "$PALLAS_FOLDER/build/src/server -m mongodb://pallasUSER:peql1234@10.73.32.33/test -db pallas -h 0.0.0.0"
 
     # Comando para el segundo programa
@@ -22,19 +22,20 @@ function pallas
 
     # Conectar a la sesión o crearla si no existe
     tmux new-session -d -s $session_name
-    tmux send-keys -t $session_name "$prog11_cmd; tmux wait-for -S channel1" C-m 
-		tmux wait-for channel1
-    tmux send-keys -t $session_name "$prog12_cmd" C-m 
+    tmux send-keys -t $session_name "$prog11_cmd" C-m
+    sleep 0.1
+    tmux send-keys -t $session_name "$prog12_cmd" C-m
 
 
     # Dividir la ventana horizontalmente y ejecutar el segundo programa
     tmux split-window -h -t $session_name
-    tmux send-keys -t $session_name "$prog11_cmd; tmux wait-for -S channel2" C-m 
-		tmux wait-for channel2
-    tmux send-keys "$prog2_cmd" Enter
+    tmux send-keys -t $session_name "$prog11_cmd" C-m 
+    sleep 0.1
+    tmux send-keys "$prog2_cmd" C-m
 
     tmux new-window -t $session_name -n "dev" 
     tmux send-keys -t $session_name "$prog11_cmd" C-m 
+		sleep 0.1
     tmux send-keys -t $session_name "$prog3_cmd" C-m
 
     # Conectar a la sesión para ver los paneles
