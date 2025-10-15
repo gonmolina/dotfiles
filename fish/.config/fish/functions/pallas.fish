@@ -22,13 +22,15 @@ function pallas
 
     # Conectar a la sesión o crearla si no existe
     tmux new-session -d -s $session_name
-    tmux send-keys -t $session_name "$prog11_cmd" C-m 
+    tmux send-keys -t $session_name "$prog11_cmd; tmux wait-for -S channel1" C-m 
+		tmux wait-for channel1
     tmux send-keys -t $session_name "$prog12_cmd" C-m 
 
 
     # Dividir la ventana horizontalmente y ejecutar el segundo programa
     tmux split-window -h -t $session_name
-    tmux send-keys -t $session_name "$prog11_cmd" C-m 
+    tmux send-keys -t $session_name "$prog11_cmd; tmux wait-for -S channel2" C-m 
+		tmux wait-for channel2
     tmux send-keys "$prog2_cmd" Enter
 
     tmux new-window -t $session_name -n "dev" 
