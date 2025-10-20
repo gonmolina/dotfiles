@@ -23,19 +23,19 @@ function pallas
     # Conectar a la sesión o crearla si no existe
     tmux new-session -d -s $session_name
     tmux send-keys -t $session_name "$prog11_cmd" C-m
-    sleep 0.1
+    sleep 0.3
     tmux send-keys -t $session_name "$prog12_cmd" C-m
 
 
     # Dividir la ventana horizontalmente y ejecutar el segundo programa
     tmux split-window -h -t $session_name
     tmux send-keys -t $session_name "$prog11_cmd" C-m 
-    sleep 0.1
+    sleep 0.3
     tmux send-keys "$prog2_cmd" C-m
 
     tmux new-window -t $session_name -n "dev" 
     tmux send-keys -t $session_name "$prog11_cmd" C-m 
-		sleep 0.1
+    sleep 0.3
     tmux send-keys -t $session_name "$prog3_cmd" C-m
 
     # Conectar a la sesión para ver los paneles
