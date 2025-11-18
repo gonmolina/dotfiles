@@ -1,0 +1,16 @@
+layout {
+    // 1. Pestaña de Desarrollo y Neovim
+    tab name="dev-nvim" focus=true {
+        pane command="fish" cwd="$HOME/dev" {
+            // Activar el entorno conda y ejecutar neovim
+            // Asegúrate de que 'mamba' esté disponible en tu PATH.
+            // Los comandos se ejecutan secuencialmente.
+            args "micromamba activate webdiagram && nvim"
+        }
+    }
+
+    // 2. Pestaña de Terminal Adicional
+    tab name="terminal" {
+        pane command="fish" cwd="$HOME/dev"
+    }
+}
