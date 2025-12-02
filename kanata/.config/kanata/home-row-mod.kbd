@@ -1,36 +1,88 @@
-;; Basic home row mods example using QWERTY
-;; For a more complex but perhaps usable configuration,
-;; see home-row-mod-advanced.kbd
-
-(defcfg
-  process-unmapped-keys yes
-)
+;; ============================================================================
+;; 1. DEFINICIÓN DE LA FUENTE (Tu teclado físico QWERTY)
+;; ============================================================================
 (defsrc
-  a   s   d   f   v   j   k   l  ;  m
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
 )
+
+;; ============================================================================
+;; 2. VARIABLES
+;; ============================================================================
 (defvar
-  ;; Note: consider using different time values for your different fingers.
-  ;; For example, your pinkies might be slower to release keys and index
-  ;; fingers faster.
+  ;; tap-time 150  ;; Tiempo en ms para detectar un toque (letra)
+  ;; hold-time 200 ;; Tiempo en ms para detectar una retención (modificador)
+
   tap-time-slow 225
   hold-time-slow 175
   tap-time-fast 200
   hold-time-fast 150
 )
+
+;; ============================================================================
+;; 3. ALIAS Y LÓGICA
+;; ============================================================================
 (defalias
-  a (tap-hold $tap-time-slow $hold-time-slow a lmet)
-  s (tap-hold $tap-time-slow $hold-time-slow s lalt)
-  d (tap-hold $tap-time-fast $hold-time-fast d lctl)
-  f (tap-hold $tap-time-fast $hold-time-fast f lsft)
-  v (tap-hold $tap-time-slow $hold-time-slow v ralt)
-  j (tap-hold $tap-time-fast $hold-time-fast j rsft)
-  k (tap-hold $tap-time-fast $hold-time-fast k rctl)
-  l (tap-hold $tap-time-slow $hold-time-slow l lalt)
-  ; (tap-hold $tap-time-slow $hold-time-slow ; rmet)
-  m (tap-hold $tap-time-slow $hold-time-slow m ralt)
+  ;; --- Home Row Mods para Colemak ---
+  ;; Izquierda (A R S T)
+  a (tap-hold $tap-time-slow $hold-time-slow a lmet) ;; A / Meta
+  cr (tap-hold $tap-time-slow $hold-time-slow r lalt) ;; R / Alt
+  cs (tap-hold $tap-time-fast $hold-time-fast s rctl) ;; S / Control
+  ct (tap-hold $tap-time-fast $hold-time-fast t lsft) ;; T / Shift
+  v (tap-hold $tap-time-slow $hold-time-slow v ralt) ;; R / Alt
 
+  ;; Derecha (N E I O)
+  cn (tap-hold $tap-time-fast $hold-time-fast n rsft) ;; N / Shift
+  ce (tap-hold $tap-time-fast $hold-time-fast e rctl) ;; E / Control
+  ci (tap-hold $tap-time-slow $hold-time-slow i lalt) ;; I / Alt
+  co (tap-hold $tap-time-slow $hold-time-slow o rmet) ;; O / Meta
+  m (tap-hold $tap-time-slow $hold-time-slow m ralt) ;; R / Alt
 
+  ;; --- Home Row Mods para QWERTY ---
+  ;; Izquierda (A S D F)
+  qs (tap-hold $tap-time-slow $hold-time-slow s lalt) ;; S / Alt
+  qd (tap-hold $tap-time-fast $hold-time-fast d rctl) ;; d / Control
+  qf (tap-hold $tap-time-fast $hold-time-fast f lsft) ;; f / Shift
+
+  ;; Derecha (J K L ;)
+  qj (tap-hold $tap-time-fast $hold-time-fast j rsft) ;; J / Shift
+  qk (tap-hold $tap-time-fast $hold-time-fast k rctl) ;; K / Control
+  ql (tap-hold $tap-time-slow $hold-time-slow l lalt) ;; L / Alt
+  q; (tap-hold $tap-time-slow $hold-time-slow ; rmet) ;; ; / Meta
+
+  ;; --- Lógica de Cambio de Capa (Shift + Escape) ---
+  ;; La función 'fork' hace esto: (fork ACCION_NORMAL ACCION_ESPECIAL (LISTA_MODIFICADORES))
+  ;; Si presionas Escape solo -> Envía 'esc'
+  ;; Si tienes presionado Shift (izq o der) y tocas Escape -> Cambia de capa
+
+  to_qwerty  (fork esc (layer-switch qwerty)  (lsft rsft))
+  to_colemak (fork esc (layer-switch colemak) (lsft rsft))
+  
+  ;; Opcional: Convertir CapsLock en Escape para mayor comodidad en Colemak
+  ;; caps_esc esc
 )
-(deflayer base
-  @a  @s  @d  @f  @v  @j  @k  @l  @;  @m
+
+;; ============================================================================
+;; 4. CAPA: COLEMAK (Con Home Row Mods)
+;; ============================================================================
+(deflayer colemak
+  @to_qwerty 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab        q    w    f    p    g    j    l    u    y    ;    [    ]    \
+  caps       @a   @cr  @cs  @ct  d    h    @cn  @ce  @ci  @co  '    ret
+  lsft       z    x    c    @v   b   k     @m   ,    .    /    rsft
+  lctl       lmet lalt           spc            ralt rmet rctl
+)
+
+;; ============================================================================
+;; 5. CAPA: QWERTY (Estándar)
+;; ============================================================================
+(deflayer qwerty
+  @to_colemak 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab         q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps        @a   @qs  @qd  @qf  g    h    @qj  @qk  @ql    ;    '    ret
+  lsft        z    x    c    @v   b    n    @m    ,    .    /    rsft
+  lctl        lmet lalt           spc            ralt rmet rctl
 )
