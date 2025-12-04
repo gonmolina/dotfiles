@@ -51,7 +51,7 @@
   qj (tap-hold $tap-time-fast $hold-time-fast j rsft) ;; J / Shift
   qk (tap-hold $tap-time-fast $hold-time-fast k rctl) ;; K / Control
   ql (tap-hold $tap-time-slow $hold-time-slow l lalt) ;; L / Alt
-  q; (tap-hold $tap-time-slow $hold-time-slow ; rmet) ;; ; / Meta
+  qsc (tap-hold $tap-time-slow $hold-time-slow ; rmet) ;; ; / Meta
 
   ;; --- Lógica de Cambio de Capa (Shift + Escape) ---
   ;; La función 'fork' hace esto: (fork ACCION_NORMAL ACCION_ESPECIAL (LISTA_MODIFICADORES))
@@ -66,7 +66,17 @@
 )
 
 ;; ============================================================================
-;; 4. CAPA: COLEMAK (Con Home Row Mods)
+;; 4. CAPA: QWERTY (Estándar)
+;; ============================================================================
+(deflayer qwerty
+ @to_colemak 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+ tab         q    w    e    r    t    y    u    i    o    p    [    ]    \
+ caps        @a   @qs  @qd  @qf  g    h    @qj  @qk  @ql    @qsc    '    ret
+ lsft        z    x    c    @v   b    n    @m    ,    .    /    rsft
+ lctl        lmet lalt           spc            ralt rmet rctl
+ )
+;; ============================================================================
+;; 5. CAPA: COLEMAK (Con Home Row Mods)
 ;; ============================================================================
 (deflayer colemak
   @to_qwerty 1    2    3    4    5    6    7    8    9    0    -    =    bspc
@@ -76,13 +86,3 @@
   lctl       lmet lalt           spc            ralt rmet rctl
 )
 
-;; ============================================================================
-;; 5. CAPA: QWERTY (Estándar)
-;; ============================================================================
-(deflayer qwerty
-  @to_colemak 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab         q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps        @a   @qs  @qd  @qf  g    h    @qj  @qk  @ql    ;    '    ret
-  lsft        z    x    c    @v   b    n    @m    ,    .    /    rsft
-  lctl        lmet lalt           spc            ralt rmet rctl
-)
