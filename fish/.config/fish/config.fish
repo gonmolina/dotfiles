@@ -35,8 +35,6 @@ set -gx NO_PROXY $no_proxy
 # export AVANTE_ANTHROPIC_API_KEY=your-claude-api-key
 # export AVANTE_OPENAI_API_KEY=your-openai-api-key
 # export AVANTE_AZURE_OPENAI_API_KEY=your-azure-api-key
-set -gx AVANTE_GEMINI_API_KEY "AIzaSyDGlY035YPXe_Pz0JtXPircSZ_09U9lQHg"
-set -gx GEMINI_API_KEY "AIzaSyDGlY035YPXe_Pz0JtXPircSZ_09U9lQHg"
 # export AVANTE_CO_API_KEY=your-cohere-api-key
 # export AVANTE_AIHUBMIX_API_KEY=your-aihubmix-api-key
 # export AVANTE_MOONSHOT_API_KEY=your-moonshot-api-key
