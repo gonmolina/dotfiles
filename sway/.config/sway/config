@@ -34,7 +34,8 @@ input * {
 
 # exec_always --no-startup-id xrandr --output DP-1 --auto --primary --left-of DVI-I-1
 # exec_always --no-startup-id sh /home/gonza/.init_scirpt.sh
-bindsym $mod+x move workspace to output next
+# bindsym $mod+x move workspace to output next
+bindsym $mod+x move workspace to output right
 mouse_warping none
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -73,7 +74,6 @@ bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+x move workspace to output right
 
 # change focus
 bindsym $mod+h focus left
