@@ -31,13 +31,7 @@ set -gx HTTP_PROXY $http_proxy
 set -gx HTTPS_PROXY $https_proxy
 set -gx FTP_PROXY $ftp_proxy
 set -gx NO_PROXY $no_proxy
-# Scoped keys (recommended)
-# export AVANTE_ANTHROPIC_API_KEY=your-claude-api-key
-# export AVANTE_OPENAI_API_KEY=your-openai-api-key
-# export AVANTE_AZURE_OPENAI_API_KEY=your-azure-api-key
-# export AVANTE_CO_API_KEY=your-cohere-api-key
-# export AVANTE_AIHUBMIX_API_KEY=your-aihubmix-api-key
-# export AVANTE_MOONSHOT_API_KEY=your-moonshot-api-key
+
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba shell init' !!
 set -gx MAMBA_EXE "$HOME/miniforge3/bin/mamba"
