@@ -199,7 +199,7 @@ bindsym $mod+Escape i3lock
 bar {
 font pango:DejaVu Sans Mono, FontAwesome 9 
     position bottom
-    status_command /usr/bin/i3status ~/.config/i3status-rust/config.toml
+    status_command /usr/bin/i3status-rs ~/.config/i3status-rust/config.toml
     colors {
         separator #666666
         background #222222
