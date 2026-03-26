@@ -139,7 +139,6 @@ set $ws9 "9: Thunderbird"
 set $ws10 "10: Music"
 
 # switch to workspace
-# bindsym $mod+1 workspace number $ws1
 bindsym $mod+1 exec fish ~/.config/sway/scripts/workspace_1.fish
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -148,8 +147,8 @@ bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+9 exec fish ~/.config/sway/scripts/workspace_9.fish
+bindsym $mod+0 exec fish ~/.config/sway/scripts/workspace_0.fish
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
