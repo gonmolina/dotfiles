@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8 
+font pango: FiraCode Nerd Font 8 
 titlebar_border_thickness 1 
 titlebar_padding 1 
 
@@ -197,7 +197,7 @@ bindsym $mod+Escape i3lock
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-font pango:DejaVu Sans Mono, FiraCode Nerd Font 9
+    font pango: FiraCode Nerd Font 8
     position bottom
     status_command /usr/bin/i3status ~/.config/i3status-rust/config.toml
     colors {
