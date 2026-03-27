@@ -127,16 +127,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: Chrome"
-set $ws2 "2: Dev"
+set $ws1 "1: Chrome "
+set $ws2 "2: Dev "
 set $ws3 "3: Aux"
 set $ws4 "4: Remmina"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8: Logseq"
-set $ws9 "9: Thunderbird"
-set $ws10 "10: Music"
+set $ws9 "9: Thunderbird "
+set $ws10 "10: Music "
 
 # switch to workspace
 bindsym $mod+1 exec fish ~/.config/sway/scripts/workspace_1.fish
@@ -197,7 +197,7 @@ bindsym $mod+Escape i3lock
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-font pango:DejaVu Sans Mono, FontAwesome 9 
+font pango:DejaVu Sans Mono, FiraCode Nerd Font 9
     position bottom
     status_command /usr/bin/i3status ~/.config/i3status-rust/config.toml
     colors {

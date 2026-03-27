@@ -1,13 +1,13 @@
 #!/usr/bin/fish
 
 # 1. Cambiamos al workspace 1 usando swaymsg
-swaymsg workspace "9: Thunderbird"
+swaymsg workspace "9: Thunderbird "
 
 # 2. Contamos las ventanas en el workspace actual ("1")
 # En Sway, la estructura del JSON es ligeramente diferente a i3
-set window_count (swaymsg -t get_tree | jq '[.. | select(.type? == "workspace" and .name? == "9: Thunderbird") | .nodes[]] | length')
+set window_count (swaymsg -t get_tree | jq '[.. | select(.type? == "workspace" and .name? == "9: Thunderbird ") | .nodes[]] | length')
 
 # 3. Si el workspace está vacío (0 ventanas), abrimos Chrome
 if test "$window_count" = "0"
-    swaymsg "workspace 9: Thunderbird; exec thunderbird"
+    swaymsg "workspace 9: Thunderbird ; exec thunderbird"
 end
