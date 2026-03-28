@@ -22,15 +22,15 @@ fnm env --use-on-cd --shell fish | source
 zoxide init fish | source
 
 # setting proxy configuration
-set -gx http_proxy "http://proxy.cnea.gob.ar:1280"
-set -gx https_proxy "http://proxy.cnea.gob.ar:1280"
-set -gx ftp_proxy "http://proxy.cnea.gob.ar:1280"
-set -gx no_proxy "localhost, 127.0.0.1, ::1, *.cnea.gov.ar, *.cnea.gob.ar, *.local, www2.ib.edu.ar, *.ctrad.control, *.develsrv.ctrad.control, 10.73.32.{0..255}" 
+# set -gx http_proxy "http://proxy.cnea.gob.ar:1280"
+# set -gx https_proxy "http://proxy.cnea.gob.ar:1280"
+# set -gx ftp_proxy "http://proxy.cnea.gob.ar:1280"
+# set -gx no_proxy "localhost, 127.0.0.1, ::1, *.cnea.gov.ar, *.cnea.gob.ar, *.local, www2.ib.edu.ar, *.ctrad.control, *.develsrv.ctrad.control, 10.73.32.{0..255}" 
 
-set -gx HTTP_PROXY $http_proxy
-set -gx HTTPS_PROXY $https_proxy
-set -gx FTP_PROXY $ftp_proxy
-set -gx NO_PROXY $no_proxy
+# set -gx HTTP_PROXY $http_proxy
+# set -gx HTTPS_PROXY $https_proxy
+# set -gx FTP_PROXY $ftp_proxy
+# set -gx NO_PROXY $no_proxy
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba shell init' !!
