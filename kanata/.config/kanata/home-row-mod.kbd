@@ -16,10 +16,10 @@
   ;; tap-time 150  ;; Tiempo en ms para detectar un toque (letra)
   ;; hold-time 200 ;; Tiempo en ms para detectar una retención (modificador)
 
-  tap-time-slow 225
-  hold-time-slow 175
-  tap-time-fast 200
-  hold-time-fast 150
+  tap-time-slow 200
+  hold-time-slow 150
+  tap-time-fast 175 
+  hold-time-fast 125
 )
 
 ;; ============================================================================
