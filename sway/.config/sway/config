@@ -215,3 +215,21 @@ bar {
         urgent_workspace #2f343a #900000 #ffffff
     }
 }
+
+
+# Capturas de pantallas
+
+# Definir carpeta de capturas
+set $screenshot_dir ~/Pictures/Screenshots
+
+# 1. Capturar toda la pantalla
+bindsym Print exec grim $screenshot_dir/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Captura guardada"
+
+# 2. Capturar una selección rectangular (o una ventana al hacer clic)
+bindsym $mod+Print exec grim -g "$(slurp)" $screenshot_dir/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Área guardada"
+
+# 3. Capturar la ventana activa (usando swaymsg y jq)
+bindsym $mod+Shift+Print exec swaymsg -t get_tree | jq -r '.. | select(.focused? == true).rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -g - $screenshot_dir/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Ventana capturada"
+
+# 4. Capturar selección rectangular al portapapeles
+bindsym $mod+Control+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Captura copiada al portapapeles"
