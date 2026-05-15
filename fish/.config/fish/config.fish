@@ -45,3 +45,8 @@ set -gx PATH "$HOME/.local/bin" $PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/gonza/Apps/google-cloud-sdk/path.fish.inc' ]; . '/home/gonza/Apps/google-cloud-sdk/path.fish.inc'; end
+
+# Alias mamba and conda to micromamba to allow activate/deactivate
+alias mamba=micromamba
+alias conda=micromamba
+
