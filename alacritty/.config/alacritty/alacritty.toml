@@ -16,3 +16,6 @@ italic = { family = "FiraCode Nerd Font", style = "Italic" }
 bold_italic = { family = "FiraCode Nerd Font", style = "Bold Italic" }
 size = 11 # Ajusta el tamaño de la fuente según tu preferencia
 
+[window]
+dimensions = { columns = 120, lines = 40}
+

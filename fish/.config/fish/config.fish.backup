@@ -42,6 +42,3 @@ $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
 
 # Added by Antigravity CLI installer
 set -gx PATH "$HOME/.local/bin" $PATH
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/gonza/Apps/google-cloud-sdk/path.fish.inc' ]; . '/home/gonza/Apps/google-cloud-sdk/path.fish.inc'; end
