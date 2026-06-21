@@ -36,6 +36,12 @@ input * {
 # exec_always --no-startup-id sh $HOME/.init_scirpt.sh
 # bindsym $mod+x move workspace to output next
 bindsym $mod+x move workspace to output right
+bindsym $mod+Shift+x exec ~/.config/sway/scripts/toggle_mirror.sh
+
+# Screen mirroring rules
+for_window [app_id="wl-mirror"] fullscreen enable, border none
+for_window [app_id="at.yrlf.wl-mirror"] fullscreen enable, border none
+
 mouse_warping none
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
