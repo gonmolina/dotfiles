@@ -1,0 +1,7 @@
+# Configuración global
+font=monospace 10
+background-color=#1e1e2e
+text-color=#cdd6f4
+
+# Las notificaciones desaparecerán automáticamente a los 5 segundos
+default-timeout=5000
