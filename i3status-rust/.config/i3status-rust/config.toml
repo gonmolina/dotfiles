@@ -1,8 +1,8 @@
 icons_format = "{icon}"
 
 [theme]
-# theme = "gruvbox-dark"
-theme = "space-villain"
+theme = "gruvbox-dark"
+# theme = "space-villain"
 
 
 # [theme.overrides]

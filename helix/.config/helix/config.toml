@@ -1,4 +1,4 @@
-theme= "rose_pine"
+theme= "gruvbox_dark_hard"
 
 [editor]
 line-number = "relative"
@@ -13,6 +13,11 @@ select = "underline"
 hidden = false
 git-ignore = true
 
+[editor.soft-wrap]
+enable = true
+wrap-indicator = "↪ "      # Símbolo visual que indica que la línea está cortada (ej: "↪ ", "↳ ", "↵ ")
+max-wrap = 25              # Sangría máxima para el texto envuelto
+wrap-at-text-width = false # false = corta en el borde de la ventana; true = corta en text-width (ej: columna 80)
 
 [keys.normal]
 C-d = ["page_cursor_half_down", "align_view_center"]
