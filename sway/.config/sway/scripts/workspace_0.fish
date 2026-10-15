@@ -9,5 +9,5 @@ set window_count (swaymsg -t get_tree | jq '[.. | select(.type? == "workspace" a
 
 # 3. Si el workspace está vacío (0 ventanas), abrimos Chrome
 if test "$window_count" = "0"
-    swaymsg "workspace 10: Music ; exec google-chrome-stable --app=https://music.youtube.com &"
+    swaymsg "workspace 10: Music ; exec google-chrome-stable --app=https://open.spotify.com &"
 end
