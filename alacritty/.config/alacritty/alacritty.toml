@@ -18,3 +18,16 @@ size = 11 # Ajusta el tamaño de la fuente según tu preferencia
 [window]
 dimensions = { columns = 120, lines = 40}
 
+[hints]
+alphabet = "jfkdls;ahgurieowpq"
+
+[[hints.enabled]]
+command = { program = "gio", args = ["open"] }
+hyperlinks = true
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "O", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\\\s{-}\\\\^⟨⟩`\\\\\\\\]+"
+
+

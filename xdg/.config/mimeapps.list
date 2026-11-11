@@ -1,0 +1,35 @@
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+application/yaml=nvim.desktop
+application/sql=code.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=org.onlyoffice.desktopeditors.desktop
+application/pdf=org.pwmt.zathura.desktop
+text/csv=libreoffice-calc.desktop
+text/plain=nvim.desktop
+image/png=org.gnome.Loupe.desktop
+text/markdown=nvim.desktop
+image/svg+xml=org.inkscape.Inkscape.desktop
+image/jpeg=org.gnome.Loupe.desktop
+x-scheme-handler/antigravity=antigravity.desktop
+inode/directory=thunar.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=org.onlyoffice.desktopeditors.desktop
+text/x-typst=nvim.desktop
+
+[Added Associations]
+application/yaml=code.desktop;nvim.desktop;
+application/sql=code.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=ai.storyteller.gridcraft.desktop;org.onlyoffice.desktopeditors.desktop;
+application/pdf=org.gnome.Papers.desktop;org.gnome.Evince.desktop;org.pwmt.zathura.desktop;
+text/csv=org.onlyoffice.desktopeditors.desktop;nvim.desktop;code.desktop;libreoffice-calc.desktop;
+text/plain=nvim.desktop;code.desktop;org.gnome.TextEditor.desktop;
+image/png=org.mozilla.firefox.desktop;com.github.PintaProject.Pinta.desktop;org.mypaint.MyPaint.desktop;org.kde.kolourpaint.desktop;org.inkscape.Inkscape.desktop;com.boxy_svg.BoxySVG.desktop;org.gnome.Loupe.desktop;
+text/markdown=userapp-md-viewer-3UIDX3.desktop;md.obsidian.Obsidian.desktop;org.onlyoffice.desktopeditors.desktop;nvim.desktop;
+image/svg+xml=nvim.desktop;com.boxy_svg.BoxySVG.desktop;org.inkscape.Inkscape.desktop;
+image/jpeg=org.gnome.Loupe.desktop;
+application/xml=nvim.desktop;com.google.Chrome.desktop;org.onlyoffice.desktopeditors.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=org.onlyoffice.desktopeditors.desktop;
+text/x-typst=nvim.desktop;
