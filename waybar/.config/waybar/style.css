@@ -1,104 +1,217 @@
-@define-color base00 #181818;
-@define-color base01 #2b2e37;
-@define-color base02 #3b3e47;
-@define-color base03 #585858;
-@define-color base04 #b8b8b8;
-@define-color base05 #d8d8d8;
-@define-color base06 #e8e8e8;
-@define-color base07 #f8f8f8;
-@define-color base08 #ab4642;
-@define-color base09 #dc9656;
-@define-color base0A #f7ca88;
-@define-color base0B #a1b56c;
-@define-color base0C #86c1b9;
-@define-color base0D #7cafc2;
-@define-color base0E #ba8baf;
-@define-color base0F #a16946;
+/* Paleta base swaybar + Gruvbox Dark (estilo i3status-rust) */
+@define-color bar_bg #222222;
+@define-color bar_fg #dddddd;
+
+@define-color ws_focused_bg #0088CC;
+@define-color ws_focused_fg #ffffff;
+@define-color ws_active_bg #333333;
+@define-color ws_active_fg #ffffff;
+@define-color ws_inactive_bg #333333;
+@define-color ws_inactive_fg #888888;
+@define-color ws_urgent_bg #900000;
+@define-color ws_urgent_fg #ffffff;
+
+@define-color gbx_bg0 #282828;
+@define-color gbx_bg1 #3c3836;
+@define-color gbx_bg2 #504945;
+@define-color gbx_fg #ebdbb2;
+@define-color gbx_fg_bright #fbf1c7;
+@define-color gbx_muted #928374;
+@define-color gbx_yellow #d79921;
+@define-color gbx_red #cc241d;
+@define-color gbx_red_bright #fb4934;
+@define-color gbx_green #b8bb26;
+@define-color gbx_aqua #83a598;
 
 * {
-  transition: none;
-  box-shadow: none;
+    font-family: 'FiraCode Nerd Font', 'Font Awesome 7 Free', 'Font Awesome 7 Brands', monospace;
+    font-size: 11px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 0;
 }
 
-#waybar {
-	font-family: 'Source Code Pro', sans-serif;
-	font-size: 1.2em;
-	font-weight: 400;
-  color: @base04;
-  background: @base01;
+window#waybar {
+    background-color: @bar_bg;
+    color: @bar_fg;
 }
 
+/* Izquierda: Workspaces estilo swaybar */
 #workspaces {
-  margin: 0 4px;
+    margin: 0;
+    padding: 0;
 }
 
 #workspaces button {
-  margin: 4px 0;
-  padding: 0 4px;
-  color: @base05;
+    padding: 0 6px;
+    margin: 0 1px 0 0;
+    background-color: @ws_inactive_bg;
+    color: @ws_inactive_fg;
+}
+
+#workspaces button:hover {
+    background-color: #444444;
+    color: @ws_focused_fg;
 }
 
 #workspaces button.visible {
+    background-color: @ws_active_bg;
+    color: @ws_active_fg;
 }
 
-#workspaces button.active {
-  border-radius: 4px;
-  background-color: @base02;
+#workspaces button.focused {
+    background-color: @ws_focused_bg;
+    color: @ws_focused_fg;
 }
 
 #workspaces button.urgent {
-  color: rgba(238, 46, 36, 1);
+    background-color: @ws_urgent_bg;
+    color: @ws_urgent_fg;
 }
 
+#mode {
+    background-color: @ws_urgent_bg;
+    color: @ws_urgent_fg;
+    padding: 0 6px;
+    margin-left: 2px;
+}
+
+#scratchpad {
+    background-color: @gbx_bg1;
+    color: @gbx_fg;
+    padding: 0 6px;
+    margin-left: 2px;
+}
+
+#scratchpad.empty {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* Derecha: bloques estilo i3status-rust gruvbox-dark con hover interactivo */
+#idle_inhibitor,
+#power-profiles-daemon,
+#battery,
+#backlight,
+#cpu,
+#disk,
+#memory,
+#temperature,
+#network,
+#bluetooth,
+#pulseaudio,
+#language,
+#clock,
 #tray {
-  margin: 4px 4px 4px 4px;
-  border-radius: 4px;
-  background-color: @base02;
+    padding: 0 8px;
+    margin: 0;
+    color: @gbx_fg;
+    border-left: 1px solid @bar_bg;
 }
 
-#tray * {
-  padding: 0 6px;
-  border-left: 1px solid @base00;
+#idle_inhibitor,
+#battery,
+#cpu,
+#memory,
+#network,
+#language {
+    background-color: @gbx_bg1;
 }
 
-#tray *:first-child {
-  border-left: none;
-}
-
-#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #custom-weather, #custom-mail, #clock, #temperature, #language{
-  margin: 4px 2px;
-  padding: 0 6px;
-  background-color: @base02;
-  border-radius: 4px;
-  min-width: 20px;
-}
-
-#pulseaudio.muted {
-  color: @base0F;
-}
-
-#pulseaudio.bluetooth {
-  color: @base0C;
+#power-profiles-daemon,
+#backlight,
+#disk,
+#temperature,
+#bluetooth,
+#pulseaudio,
+#tray {
+    background-color: @gbx_bg0;
 }
 
 #clock {
-  margin-left: 0px;
-  margin-right: 4px;
-  background-color: transparent;
+    background-color: @gbx_bg2;
+    color: @gbx_fg_bright;
 }
 
-#temperature.critical {
-  color: @base0F;
+#idle_inhibitor:hover,
+#power-profiles-daemon:hover,
+#battery:hover,
+#backlight:hover,
+#cpu:hover,
+#disk:hover,
+#memory:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#language:hover {
+    background-color: @gbx_bg2;
 }
 
-#window {
-  font-size: 0.9em;
-	font-weight: 400;
-	font-family: sans-serif;
+#clock:hover {
+    background-color: #665c54;
 }
 
-#language {
-	font-size: 0.9em;
-	font-weight: 500;
-	letter-spacing: -1px;
+/* Estados */
+#idle_inhibitor.activated {
+    background-color: @gbx_yellow;
+    color: @gbx_bg0;
+}
+
+#power-profiles-daemon.performance {
+    color: @gbx_red_bright;
+}
+
+#power-profiles-daemon.balanced {
+    color: @gbx_aqua;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @gbx_green;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @gbx_green;
+}
+
+#battery.warning:not(.charging),
+#cpu.warning,
+#disk.warning,
+#memory.warning {
+    background-color: @gbx_yellow;
+    color: @gbx_bg0;
+}
+
+#battery.critical:not(.charging),
+#cpu.critical,
+#disk.critical,
+#memory.critical,
+#temperature.critical,
+#network.disconnected {
+    background-color: @gbx_red;
+    color: @gbx_fg_bright;
+}
+
+#pulseaudio.muted {
+    color: @gbx_muted;
+}
+
+#bluetooth.connected {
+    color: @gbx_aqua;
+}
+
+#bluetooth.off,
+#bluetooth.disabled {
+    color: @gbx_muted;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @gbx_red;
 }

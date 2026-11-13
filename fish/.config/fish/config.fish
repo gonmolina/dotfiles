@@ -50,3 +50,7 @@ if [ -f '/home/gonza/Apps/google-cloud-sdk/path.fish.inc' ]; . '/home/gonza/Apps
 alias mamba=micromamba
 alias conda=micromamba
 
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/gonzalo/.local/bin" $PATH
