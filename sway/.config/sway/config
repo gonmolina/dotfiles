@@ -32,6 +32,8 @@ input * {
     xkb_variant "intl"
 }
 
+exec /usr/bin/lxpolkit
+
 # exec_always --no-startup-id xrandr --output DP-1 --auto --primary --left-of DVI-I-1
 # exec_always --no-startup-id sh $HOME/.init_scirpt.sh
 # bindsym $mod+x move workspace to output next
