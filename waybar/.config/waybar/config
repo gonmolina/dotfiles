@@ -30,7 +30,7 @@
     "sway/workspaces": {
         "disable-scroll": false,
         "all-outputs": false,
-        "format": "{name}"
+        "format": "{value}"
     },
 
     "sway/mode": {
